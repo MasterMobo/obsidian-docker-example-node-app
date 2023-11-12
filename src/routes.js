@@ -4,7 +4,7 @@ const router = express.Router()
 
 
 router.get("/", (req, res) => {
-    res.send("Hello World! You are cruel")
+    res.send("Hello World!")
 })
 
 router.post("/user", createNewUser)
