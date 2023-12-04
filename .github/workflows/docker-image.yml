@@ -33,3 +33,19 @@ jobs:
           file: ./Dockerfile.prod
           push: true
           tags: mastermobo/obsidian-docker-example:latest
+
+  deploy:
+    needs: build-and-push
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install SSH client and sshpass
+        run: sudo apt-get install -y openssh-client sshpass
+
+      - name: SSH into DigitalOcean Droplet
+        run: |
+          sshpass -p ${{ secrets.ROOT_SSH_PASSWORD }} ssh -o StrictHostKeyChecking=no root@your-droplet-ip-address << 'EOF'
+            # Commands to run on the remote machine
+            cd /app
+            git pull origin main
+            docker-compose -f docker-compose.prod.yml up -d
+          EOF
