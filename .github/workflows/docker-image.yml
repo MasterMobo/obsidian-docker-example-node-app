@@ -45,7 +45,7 @@ jobs:
         run: |
           sshpass -p ${{ secrets.ROOT_SSH_PASSWORD }} ssh -o StrictHostKeyChecking=no root@${{ secrets.DO_DROPLET_IP }} << 'EOF'
             # Commands to run on the remote machine
-            cd /app
+            cd ./app
             git pull origin main
             docker stack deploy -c docker-compose.yml -c docker-compose.prod.yml api
           EOF
