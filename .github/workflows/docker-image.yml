@@ -30,5 +30,6 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
+          file: ./Dockerfile.prod
           push: true
           tags: mastermobo/obsidian-docker-example:latest

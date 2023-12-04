@@ -3,8 +3,7 @@ services:
   node-app:
     build: 
       context: .
-      args:
-        - NODE_ENV=development
+      file: Dockerfile.dev
     volumes:
       - .:/app:ro
       - /app/node_modules

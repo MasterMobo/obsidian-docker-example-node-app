@@ -3,8 +3,7 @@ services:
   node-app:
     build: 
       context: .
-      args:
-        - NODE_ENV=production
+      dockerfile: Dockerfile.prod
     deploy:
       replicas: 5
       restart_policy:
