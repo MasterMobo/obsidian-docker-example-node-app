@@ -3,7 +3,7 @@ const { createNewUser } = require("./userControllers");
 const router = express.Router();
 
 router.get("/", (req, res) => {
-    res.send("Hello World! This is a brand new update!");
+    res.send("Hello World!");
 });
 
 router.post("/user", createNewUser);
