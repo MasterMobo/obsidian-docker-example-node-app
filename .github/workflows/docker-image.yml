@@ -47,5 +47,5 @@ jobs:
             # Commands to run on the remote machine
             cd /app
             git pull origin main
-            docker-compose -f docker-compose.prod.yml up -d
+            docker stack deploy -c docker-compose.yml -c docker-compose.prod.yml api
           EOF
