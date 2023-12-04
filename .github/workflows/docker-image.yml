@@ -28,8 +28,5 @@ jobs:
         with:
           push: true
           context: .
-          file: |
-            docker-compose.yml
-            docker-compose.prod.yml
           tags: mastermobo/obsidian-docker-example:latest
 
